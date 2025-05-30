@@ -11,6 +11,8 @@ abstract class CarouselSliderController {
 
   Future<Null> get onReady;
 
+  CarouselState? get state;
+
   Future<void> nextPage({Duration? duration, Curve? curve});
 
   Future<void> previousPage({Duration? duration, Curve? curve});
@@ -30,6 +32,9 @@ class CarouselSliderControllerImpl implements CarouselSliderController {
   final Completer<Null> _readyCompleter = Completer<Null>();
 
   CarouselState? _state;
+
+  @override
+  CarouselState? get state => _state;
 
   set state(CarouselState? state) {
     _state = state;
